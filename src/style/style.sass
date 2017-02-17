@@ -1,0 +1,345 @@
+@import reset
+@import variables
+@import mixins
+@import fonts
+
+//basic
+*,
+*:before,
+*:after
+  box-sizing: border-box
+html,
+body
+  position: relative
+  font-size: 14px
+  font-weight: 400
+.container
+  margin: 0 auto
+  width: 100%
+  max-width: 1280px
+  padding: 0 18px
+  @include clearfix()
+a
+  text-decoration: underline
+  &:hover
+    text-decoration: none
+
+//greeting
+.greeting
+  position: relative
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+  background-image: url("../img/greeting.jpg")
+  padding: 101px 0 54px
+  color: #fff
+  font-family: 'Roboto', sans-serif
+  &__logo
+    display: inline-block
+    @include color(inherit)
+    @include transparency()
+    text-transform: uppercase
+    margin-left: 2px
+  &__content
+    width: 100%
+    max-width: 646px
+    @include clearfix()
+  &__caption
+    margin: 39px 0 2px
+    font-weight: 400
+    font-size: 60px
+    letter-spacing: -0.7px
+  &__description
+    margin: 4px 0 62px
+    font-weight: 300
+    font-size: 52px
+    line-height: 0.99
+  &__form
+    margin: 1px 0 80px
+  &__foot-price,
+  &__foot-description
+    margin-left: 20px
+    text-align: center
+    font-family: 'Open Sans',sans-serif
+  &__foot-price
+    font-size: 41px
+    font-weight: 800
+  &__foot-description
+    font-size: 22px
+    color: $secondaryColor
+    margin-top: 3px
+
+//form
+.form
+  @include clearfix()
+  &__row
+    margin: 0 0 10px
+    @include clearfix()
+    width: 50%
+    text-align: center
+    &_label
+      float: right
+      margin: 12px 0 0
+      text-transform: uppercase
+      font-size: 16px
+      font-weight: 600
+      font-family: 'Open Sans',sans-serif
+      line-height: 40px
+      padding-left: 67px
+      letter-spacing: 2.2px
+      text-align: left
+      vertical-align: middle
+      background-repeat: no-repeat
+      background-position: 19px center
+      background-image: url("../img/left-arrow.svg")
+    &_description
+      font-size: 12px
+      font-weight: 300
+      color: #c6c6c6
+      position: relative
+      line-height: 1.35
+      margin-top: 12px
+      a
+        @include color(inherit)
+    &_indent
+      margin-top: 24px
+    &_group
+      display: table
+      table-layout: fixed
+      border-spacing: 1px 0
+      &:before,
+      &:after
+        display: none
+      .form__col:first-child .form__field_group
+        border-bottom-left-radius: $fieldHeight
+        border-top-left-radius: $fieldHeight
+      .form__col:last-child .form__field_group
+        border-bottom-right-radius: $fieldHeight
+        border-top-right-radius: $fieldHeight
+  &__field
+    background-color: rgba(255, 255, 255, 0.3)
+    border: 1px solid transparent
+    color: #dedede
+    font-weight: 300
+    height: $fieldHeight
+    border-radius: $fieldHeight
+    display: block
+    text-align: center
+    width: 100%
+    padding: 0 10px
+    &::-moz-placeholder,
+    &::-webkit-input-placeholder
+      color: #ffffff
+    &:hover,
+    &:active,
+    &:focus
+      outline: none
+    &.active,
+    &:active,
+    &:focus
+      border-color: $fieldActiveColor
+      color: $fieldActiveColor
+    &:active
+      box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.2)
+    &_group
+      border-radius: 0
+  &__col
+    display: table-cell
+  &__btn
+    background-color: $secondaryColor
+    border: 1px solid $secondaryColor
+    color: #fff
+    height: $fieldHeight
+    border-radius: $fieldHeight
+    display: block
+    text-align: center
+    width: 100%
+    padding: 0 10px
+    transition: border-color .3s ease
+    letter-spacing: 0.5px
+    cursor: pointer
+    &:hover,
+    &:active,
+    &:focus
+      outline: none
+    &:hover
+      border-color: $fieldActiveColor
+    &:active
+      box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.2)
+
+//beginning
+.beginning
+  padding: 44px 0 54px
+  position: relative
+  font-family: 'Open Sans', sans-serif
+  text-align: center
+  color: #333
+  &__caption
+    font-weight: 300
+    font-size: 44px
+  &__content
+    display: table
+    position: relative
+    table-layout: fixed
+    width: 100%
+    .beginning__item:first-child:before
+      width: 50%
+      left: 50%
+    .beginning__item:last-child:before
+      width: 50%
+      right: 50%
+  &__item
+    display: table-cell
+    position: relative
+    padding: 17px 20px
+    &-img
+      background-repeat: no-repeat
+      background-image: url("../img/beginning__item-img.png")
+      height: $beginningImgHeight
+      width: $beginningImgHeight
+      margin: 1px auto 57px
+      position: relative
+      padding-bottom: 10px
+      &_1
+        background-position: 10px 0
+      &_2
+        background-position: -197px 0
+      &_3
+        background-position: -404px 0
+      &_4
+        background-position: -611px 0
+      &_5
+        background-position: -819px 0
+      &_6
+        background-position: -1027px 0
+    &:after,
+    &:before
+      content: ''
+      position: absolute
+      left: 0
+      right: 0
+      top: $beginningImgHeight+38
+    &:after
+      margin: 0 auto
+      height: $beginningCircleSize
+      width: $beginningCircleSize
+      border-radius: $beginningCircleSize
+      background-color: #fff
+      border: 2px solid $beginningSecondaryColor
+    &:before
+      margin-top: $beginningCircleSize/2-1
+      width: 100%
+      height: 2px
+      background-color: $beginningSecondaryColor
+    &-text
+      margin: 1px 0 2px
+      line-height: 1.3
+
+//media
+@media (max-width: 1200px)
+  .beginning
+    &__content
+      display: block
+      .beginning__item:first-child:before
+        height: 50%
+        width: 2px
+        left: $beginningImgHeight+15px
+        right: initial
+        top: 50%
+      .beginning__item:last-child:before
+        height: 50%
+        width: 2px
+        left: $beginningImgHeight+15px
+        right: initial
+        bottom: 50%
+    &__item
+      display: block
+      min-height: $beginningImgHeight
+      padding: 0
+      width: 100%
+      max-width: 600px
+      margin: 0 auto
+      &-img,
+      &-text
+        display: block
+        margin: 0
+        vertical-align: middle
+        text-align: left
+      &-img
+        float: left
+        padding: 15px
+      &-text
+        margin: 0 0 0 $beginningImgHeight
+        padding: 30px 15px 15px 50px
+      &:after,
+      &:before
+        left: $beginningImgHeight+15px
+        right: initial
+      &:after
+        margin: 0
+        top: 30px
+      &:before
+        margin-top: 0
+        width: 2px
+        height: 100%
+        top: 0
+        bottom: 0
+        margin-left: $beginningCircleSize/2-1
+
+@media (max-width: 700px)
+  html,
+  body
+    font-size: 13px
+  .greeting
+    padding: 80px 0 43px
+    &__logo
+      width: 142px
+      img
+        max-width: 100%
+    &__caption
+      margin: 33px 0 2px
+      font-size: 48.5px
+    &__description
+      margin: 4px 0 48px
+      font-size: 42px
+    &__foot-price
+      font-size: 2.7rem
+      margin-left: 0
+    &__foot-description
+      font-size: 1.35rem
+      margin-top: 2px
+      margin-left: 0
+    &__form
+      margin-bottom: 60px
+
+  .form
+    &__row
+      &_label
+        font-size: 1rem
+      &_description
+        font-size: .9rem
+  .beginning
+    padding: 23px 0 17px
+    &__caption
+      font-weight: 300
+      font-size: 2.8rem
+
+@media (max-width: 600px)
+  .form
+    &__row
+      width: 100%
+      &_label
+        background-image: none
+        padding: 0
+        float: none
+        text-align: center
+        margin-bottom: -20px
+        line-height: 1.35
+
+
+
+
+
+
+
+
